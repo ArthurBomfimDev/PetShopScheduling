@@ -9,6 +9,8 @@
   <ItemGroup>
     <Folder Include="DTO\Registration\" />
     <Folder Include="Interface\Repository\Registration\" />
+    <Folder Include="Interface\Service\Base\" />
+    <Folder Include="Interface\Service\Registration\" />
     <Folder Include="Service\Base\" />
     <Folder Include="Service\Registration\" />
   </ItemGroup>

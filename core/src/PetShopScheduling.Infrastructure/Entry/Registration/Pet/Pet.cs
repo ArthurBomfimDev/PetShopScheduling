@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace PetShopScheduling.Infrastructure.Entry.Registration.Pet;
 
-namespace PetShopScheduling.Infrastructure.Entry.Registration.Pet
+public class Pet
 {
-    internal class Pet
-    {
-    }
+    public long CustomerId { get; private set; }
+    
 }
