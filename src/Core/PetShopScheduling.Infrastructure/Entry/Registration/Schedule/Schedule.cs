@@ -34,7 +34,7 @@ public class Schedule : BaseEntry<Schedule>
 
     public Schedule() { }
 
-    public Schedule(long customerId, long petId, bool hasVaccine, long? vaccineId, bool hasBath, bool hasGromming, EnumGroomingType groomingType, DateOnly day, DateTime time, string? observation, Customer customer, Pet pet, Vaccine vaccine)
+    public Schedule(long customerId, long petId, bool hasVaccine, long? vaccineId, bool hasBath, bool hasGromming, EnumGroomingType groomingType, DateOnly day, DateTime time, string? observation, Customer customer, List<Pet>? pet, List<Vaccine>? vaccine)
     {
         CustomerId = customerId;
         PetId = petId;

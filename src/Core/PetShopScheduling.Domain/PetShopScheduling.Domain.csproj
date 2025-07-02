@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="DTO\Registration\Customer\CustomerAdress\" />
+    <Folder Include="DTO\Registration\Customer\CustomerPhone\" />
+    <Folder Include="DTO\Registration\Customer\Customer\" />
+    <Folder Include="DTO\Registration\Pet\" />
+    <Folder Include="DTO\Registration\Schedule\" />
+    <Folder Include="DTO\Registration\Vaccine\ReservedVaccines\" />
+    <Folder Include="DTO\Registration\Vaccine\Vaccine\" />
+    <Folder Include="Interface\Repository\Registration\Customer\CustomerAdress\" />
+    <Folder Include="Interface\Repository\Registration\Customer\CustomerPhone\" />
+    <Folder Include="Interface\Repository\Registration\Customer\Customer\" />
+    <Folder Include="Interface\Repository\Registration\Pet\" />
+    <Folder Include="Interface\Repository\Registration\Schedule\" />
+    <Folder Include="Interface\Repository\Registration\Vaccine\ReservedVaccines\" />
+    <Folder Include="Interface\Repository\Registration\Vaccine\Vaccine\" />
+    <Folder Include="Interface\Service\Registration\Customer\CustomerAdress\" />
+    <Folder Include="Interface\Service\Registration\Customer\CustomerPhone\" />
+    <Folder Include="Interface\Service\Registration\Customer\Customer\" />
+    <Folder Include="Interface\Service\Registration\Pet\" />
+    <Folder Include="Interface\Service\Registration\Schedule\" />
+    <Folder Include="Interface\Service\Registration\Vaccine\ReservedVaccines\" />
+    <Folder Include="Interface\Service\Registration\Vaccine\Vaccine\" />
+    <Folder Include="Service\Registration\Customer\CustomerAdress\" />
+    <Folder Include="Service\Registration\Customer\CustomerPhone\" />
+    <Folder Include="Service\Registration\Customer\Customer\" />
+    <Folder Include="Service\Registration\Pet\" />
+    <Folder Include="Service\Registration\Schedule\" />
+    <Folder Include="Service\Registration\Vaccine\ReservedVaccines\" />
+    <Folder Include="Service\Registration\Vaccine\Vaccine\" />
+  </ItemGroup>
+
+</Project>

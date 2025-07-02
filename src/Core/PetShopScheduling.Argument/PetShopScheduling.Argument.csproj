@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Argument\Base\" />
+    <Folder Include="Argument\Registration\Customer\Customer\" />
+    <Folder Include="Argument\Registration\Customer\CustomerAdress\" />
+    <Folder Include="Argument\Registration\Customer\CustomerPhone\" />
+    <Folder Include="Internal\ApiResponse\" />
+    <Folder Include="Argument\Registration\Schedule\" />
+    <Folder Include="Argument\Registration\Pet\" />
+    <Folder Include="Argument\Registration\Vaccine\ReservedVaccines\" />
+    <Folder Include="Argument\Registration\Vaccine\Vaccine\" />
+  </ItemGroup>
+
+</Project>

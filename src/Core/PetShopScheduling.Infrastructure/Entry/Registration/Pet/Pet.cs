@@ -8,7 +8,7 @@ namespace PetShopScheduling.Infrastructure.Entry.Registration;
 public class Pet : BaseEntry<Pet>
 {
     [Column("id_cliente")]
-    public long CustomerId { get; private set;  // trocar para pet
+    public long CustomerId { get; private set; }  // trocar para pet
     [Column("nome")]
     public string? Name { get; private set; }
     [Column("raca")]
