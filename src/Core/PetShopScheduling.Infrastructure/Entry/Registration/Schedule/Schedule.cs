@@ -1,11 +1,13 @@
-﻿using PetShopScheduling.Argument.Enum.GroomingType;
+﻿using PetShopScheduling.Argument.Argument.Base;
+using PetShopScheduling.Argument.Enum.GroomingType;
+using PetShopScheduling.Domain.DTO.Base;
 using PetShopScheduling.Infrastructure.Entry.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetShopScheduling.Infrastructure.Entry.Registration.Schedule;
 
 [Table("agendamento")]
-public class Schedule : BaseEntry<Schedule>
+public class Schedule : BaseEntry<Schedule, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_0, BaseInputIdentityUpdate_0, BaseInputIdentityDelete_0, BaseInputIdentityView_0, BaseOutput_0>
 {
     [Column("id_cliente")]
     public long CustomerId { get; private set; }

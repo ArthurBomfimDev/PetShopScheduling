@@ -37,4 +37,8 @@
     <Folder Include="Service\Registration\Vaccine\Vaccine\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PetShopScheduling.Argument\PetShopScheduling.Argument.csproj" />
+  </ItemGroup>
+
 </Project>

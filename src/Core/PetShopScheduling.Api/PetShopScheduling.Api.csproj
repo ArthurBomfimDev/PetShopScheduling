@@ -20,4 +20,9 @@
     <Folder Include="Controllers\Registration\Vaccine\Vaccine\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PetShopScheduling.Domain\PetShopScheduling.Domain.csproj" />
+    <ProjectReference Include="..\PetShopScheduling.Infrastructure\PetShopScheduling.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

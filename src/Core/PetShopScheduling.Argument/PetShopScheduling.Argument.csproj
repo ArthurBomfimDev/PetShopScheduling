@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Argument\Base\" />
     <Folder Include="Argument\Registration\Customer\Customer\" />
     <Folder Include="Argument\Registration\Customer\CustomerAdress\" />
     <Folder Include="Argument\Registration\Customer\CustomerPhone\" />
