@@ -2,13 +2,13 @@
 using PetShopScheduling.Infrastructure.Entry.Registration.Schedule;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PetShopScheduling.Infrastructure.Entry.Registration.Pet;
+namespace PetShopScheduling.Infrastructure.Entry.Registration;
 
 [Table("pet")]
 public class Pet : BaseEntry<Pet>
 {
     [Column("id_cliente")]
-    public long CustomerId { get; private set; }
+    public long CustomerId { get; private set;  // trocar para pet
     [Column("nome")]
     public string? Name { get; private set; }
     [Column("raca")]

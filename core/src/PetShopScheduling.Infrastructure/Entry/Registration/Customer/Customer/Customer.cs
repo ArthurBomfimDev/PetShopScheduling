@@ -10,4 +10,7 @@ public class Customer : BaseEntry<Customer>
     public string Name { get; private set; }
     [Column("cpf")]
     public string? Cpf { get; private set; }
+
+    public List<CustomerPhone> CustomerPhone { get; private set; }
+    public List<CustomerAddress> CustomerAddress { get; private set; }
 }
