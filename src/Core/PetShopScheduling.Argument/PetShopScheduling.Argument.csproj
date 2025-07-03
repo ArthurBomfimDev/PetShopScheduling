@@ -7,9 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Argument\Registration\Customer\Customer\" />
-    <Folder Include="Argument\Registration\Customer\CustomerAdress\" />
-    <Folder Include="Argument\Registration\Customer\CustomerPhone\" />
     <Folder Include="Internal\ApiResponse\" />
     <Folder Include="Argument\Registration\Schedule\" />
     <Folder Include="Argument\Registration\Pet\" />

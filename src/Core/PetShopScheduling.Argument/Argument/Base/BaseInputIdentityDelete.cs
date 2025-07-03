@@ -3,9 +3,8 @@ using System.Text.Json.Serialization;
 
 namespace PetShopScheduling.Argument.Argument.Base;
 
-public class BaseInputIdentityDelete<TInputIdentityDelete> where TInputIdentityDelete : BaseInputIdentityDelete<TInputIdentityDelete>
+public abstract class BaseInputIdentityDelete<TInputIdentityDelete> where TInputIdentityDelete : BaseInputIdentityDelete<TInputIdentityDelete>
 {
-    [Required(ErrorMessage = "O campo {0} é OBRIGATÓRIO - Identificador")]
     public long Id { get; set; }
 
     [JsonConstructor]

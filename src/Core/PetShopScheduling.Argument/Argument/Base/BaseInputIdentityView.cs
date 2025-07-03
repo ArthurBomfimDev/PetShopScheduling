@@ -1,7 +1,16 @@
-﻿namespace PetShopScheduling.Argument.Argument.Base;
+﻿using System.Text.Json.Serialization;
+
+namespace PetShopScheduling.Argument.Argument.Base;
 
 public abstract class BaseInputIdentityView<TInputIndetityView> where TInputIndetityView : BaseInputIdentityView<TInputIndetityView> 
 {
-    public virtual long Id { get; private set; }
+    public long Id { get; set; }
+    protected BaseInputIdentityView() { }
+
+    [JsonConstructor]
+    protected BaseInputIdentityView(long id)
+    {
+        Id = id;
+    }
 }
 public class BaseInputIdentityView_0 : BaseInputIdentityView<BaseInputIdentityView_0> { }

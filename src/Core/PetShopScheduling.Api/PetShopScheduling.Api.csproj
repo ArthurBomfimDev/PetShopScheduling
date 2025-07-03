@@ -13,7 +13,6 @@
   <ItemGroup>
     <Folder Include="Controllers\Registration\Customer\CustomerAdress\" />
     <Folder Include="Controllers\Registration\Customer\CustomerPhone\" />
-    <Folder Include="Controllers\Registration\Customer\Customer\" />
     <Folder Include="Controllers\Registration\Pet\" />
     <Folder Include="Controllers\Registration\Schedule\" />
     <Folder Include="Controllers\Registration\Vaccine\ReservedVaccines\" />
