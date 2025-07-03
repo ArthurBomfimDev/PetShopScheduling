@@ -31,6 +31,7 @@ public class Pet : BaseEntry<Pet, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_
     #region Virtual Properties
     [NotMapped]
     public List<Schedule> ListSchedule { get; private set; }
+    #endregion
 
     public Pet() { }
 
@@ -46,5 +47,4 @@ public class Pet : BaseEntry<Pet, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_
         Observation = observation;
         ListSchedule = listSchedule;
     }
-    #endregion
 }

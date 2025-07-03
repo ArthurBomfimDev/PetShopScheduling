@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\Registration\Customer\CustomerAdress\" />
-    <Folder Include="DTO\Registration\Customer\CustomerPhone\" />
-    <Folder Include="DTO\Registration\Customer\Customer\" />
-    <Folder Include="DTO\Registration\Pet\" />
-    <Folder Include="DTO\Registration\Schedule\" />
-    <Folder Include="DTO\Registration\Vaccine\ReservedVaccines\" />
-    <Folder Include="DTO\Registration\Vaccine\Vaccine\" />
     <Folder Include="Interface\Repository\Registration\Customer\CustomerAdress\" />
     <Folder Include="Interface\Repository\Registration\Customer\CustomerPhone\" />
     <Folder Include="Interface\Repository\Registration\Customer\Customer\" />
