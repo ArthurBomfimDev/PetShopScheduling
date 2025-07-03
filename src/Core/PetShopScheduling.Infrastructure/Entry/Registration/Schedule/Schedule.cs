@@ -4,7 +4,7 @@ using PetShopScheduling.Domain.DTO.Base;
 using PetShopScheduling.Infrastructure.Entry.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PetShopScheduling.Infrastructure.Entry.Registration.Schedule;
+namespace PetShopScheduling.Infrastructure.Entry.Registration;
 
 [Table("agendamento")]
 public class Schedule : BaseEntry<Schedule, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_0, BaseInputIdentityUpdate_0, BaseInputIdentityDelete_0, BaseInputIdentityView_0, BaseOutput_0>
@@ -22,7 +22,7 @@ public class Schedule : BaseEntry<Schedule, BaseDTO_0, BaseInputCreate_0, BaseIn
     [Column("tosa")]
     public bool HasGromming { get; private set; }
     [Column("tipo_tosa")]
-    public EnumGroomingType GroomingType { get; private set; }
+    public EnumGroomingType? GroomingType { get; private set; }
     [Column("dia")]
     public DateOnly Day { get; private set; }
     [Column("horario")]

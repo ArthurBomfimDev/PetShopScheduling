@@ -8,4 +8,12 @@ namespace PetShopScheduling.Infrastructure.Entry.Registration;
 [Table("telefone_usuario")]
 public class CustomerPhone : BaseEntry<CustomerPhone, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_0, BaseInputIdentityUpdate_0, BaseInputIdentityDelete_0, BaseInputIdentityView_0, BaseOutput_0>
 {
+    [Column("id_cliente")]
+    public long CustomerId { get; private set; }
+    [Column("numero")]
+    public string PhoneNumber { get; private set; }
+    [Column("tem_whatsapp")]
+    public bool IsZapZap { get; private set; }
+    [Column("observação")]
+    public string? Observation { get; private set; }
 }
