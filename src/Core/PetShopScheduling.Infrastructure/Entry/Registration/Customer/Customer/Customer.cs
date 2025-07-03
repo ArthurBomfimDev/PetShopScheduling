@@ -2,6 +2,7 @@
 using PetShopScheduling.Domain.DTO.Registration;
 using PetShopScheduling.Infrastructure.Entry.Base;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
 
 namespace PetShopScheduling.Infrastructure.Entry.Registration;
 
@@ -15,18 +16,28 @@ public class Customer : BaseEntry<Customer, CustomerDTO, InputCreateCustomer, In
 
     #region Virtual Properties
     [NotMapped]
-    public List<CustomerPhone> CustomerPhone { get; private set; }
+    public List<CustomerPhone> ListCustomerPhone { get; private set; }
     [NotMapped]
-    public List<CustomerAddress> CustomerAddress { get; private set; }
+    public List<CustomerAddress> ListCustomerAddress { get; private set; }
     #endregion
 
     public Customer() { }
 
-    public Customer(string name, string? cpf, List<CustomerPhone> customerPhone, List<CustomerAddress> customerAddress)
+    public Customer(string name, string? cpf, List<CustomerPhone> listCustomerPhone, List<CustomerAddress> listCustomerAddress)
     {
         Name = name;
         Cpf = cpf;
-        CustomerPhone = customerPhone;
-        CustomerAddress = customerAddress;
+        ListCustomerPhone = listCustomerPhone;
+        ListCustomerAddress = listCustomerAddress;
+    }
+
+    public CustomerDTO GetDTO()
+    {
+        return new CustomerDTO(Name, Cpf, ListCustomerPhone, ListCustomerAddress)
+    }
+
+    public static implicit operator CustomerDTO(Customer customer)
+    {
+        return customer!.GetDTO();
     }
 }

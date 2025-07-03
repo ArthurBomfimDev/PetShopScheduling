@@ -2,9 +2,10 @@
 
 namespace PetShopScheduling.Argument.Argument.Base;
 
-public abstract class BaseInputIdentityView<TInputIndetityView> where TInputIndetityView : BaseInputIdentityView<TInputIndetityView> 
+public class BaseInputIdentityView<TInputIndetityView> where TInputIndetityView : BaseInputIdentityView<TInputIndetityView> 
 {
     public long Id { get; set; }
+
     protected BaseInputIdentityView() { }
 
     [JsonConstructor]

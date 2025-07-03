@@ -5,7 +5,6 @@ namespace PetShopScheduling.Argument.Argument.Base;
 
 public class BaseInputIdentityUpdate<TInputUpdate> where TInputUpdate : BaseInputUpdate<TInputUpdate>
 {
-    [Required(ErrorMessage = "O campo {0} é OBRIGATÓRIO - Identificador")]
     public long Id { get; set; }
     public TInputUpdate? InputUpdate { get; set; }
 

@@ -11,18 +11,18 @@ public class CustomerDTO : BaseDTO<CustomerDTO, InputCreateCustomer, InputUpdate
 
     #region Virtual Properties
     [NotMapped]
-    public List<CustomerPhoneDTO> CustomerPhone { get; private set; }
+    public List<CustomerPhoneDTO> ListCustomerPhone { get; private set; }
     [NotMapped]
-    public List<CustomerAdressDTO> CustomerAddress { get; private set; }
+    public List<CustomerAdressDTO> ListCustomerAddress { get; private set; }
     #endregion
 
     public CustomerDTO() { }
 
-    public CustomerDTO(string name, string? cpf, List<CustomerPhoneDTO> customerPhone, List<CustomerAdressDTO> customerAddress)
+    public CustomerDTO(string name, string? cpf, List<CustomerPhoneDTO> listCustomerPhone, List<CustomerAdressDTO> listCustomerAddress)
     {
         Name = name;
         Cpf = cpf;
-        CustomerPhone = customerPhone;
-        CustomerAddress = customerAddress;
+        ListCustomerPhone = listCustomerPhone;
+        ListCustomerAddress = listCustomerAddress;
     }
 }

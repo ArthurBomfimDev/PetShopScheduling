@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace PetShopScheduling.Argument.Argument.Base;
 
-public abstract class BaseInputIdentityDelete<TInputIdentityDelete> where TInputIdentityDelete : BaseInputIdentityDelete<TInputIdentityDelete>
+public class BaseInputIdentityDelete<TInputIdentityDelete> where TInputIdentityDelete : BaseInputIdentityDelete<TInputIdentityDelete>
 {
     public long Id { get; set; }
 
