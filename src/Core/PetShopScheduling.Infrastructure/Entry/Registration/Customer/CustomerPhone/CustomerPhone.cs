@@ -16,4 +16,21 @@ public class CustomerPhone : BaseEntry<CustomerPhone, BaseDTO_0, BaseInputCreate
     public bool IsZapZap { get; private set; }
     [Column("observação")]
     public string? Observation { get; private set; }
+
+    #region Virtual Properties
+    [NotMapped]
+    [ForeignKey(nameof(CustomerId))]
+    public Customer Customer { get; private set; }
+    #endregion
+
+    public CustomerPhone() { }
+
+    public CustomerPhone(long customerId, string phoneNumber, bool isZapZap, string? observation, Customer customer)
+    {
+        CustomerId = customerId;
+        PhoneNumber = phoneNumber;
+        IsZapZap = isZapZap;
+        Observation = observation;
+        Customer = customer;
+    }
 }

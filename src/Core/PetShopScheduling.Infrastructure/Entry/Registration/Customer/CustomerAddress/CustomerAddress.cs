@@ -20,4 +20,23 @@ public class CustomerAddress : BaseEntry<CustomerAddress, BaseDTO_0, BaseInputCr
     public string? Number { get; private set; }
     [Column("observacao")]
     public string? Observation { get; private set; }
+
+    #region Virtual Properties
+    [NotMapped]
+    [ForeignKey(nameof(CustomerId))]
+    public Customer Customer { get; private set; }
+    #endregion
+
+    public CustomerAddress() { }
+
+    public CustomerAddress(long customerId, string? cEP, string? neighborhood, string? street, string? number, string? observation, Customer customer)
+    {
+        CustomerId = customerId;
+        CEP = cEP;
+        Neighborhood = neighborhood;
+        Street = street;
+        Number = number;
+        Observation = observation;
+        Customer = customer;
+    }
 }

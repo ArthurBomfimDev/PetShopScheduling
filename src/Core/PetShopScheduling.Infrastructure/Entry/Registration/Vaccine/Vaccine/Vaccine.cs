@@ -21,4 +21,16 @@ public class Vaccine : BaseEntry<Vaccine, BaseDTO_0, BaseInputCreate_0, BaseInpu
     public DateOnly Validity { get; private set; }
     [Column("status_vacina")]
     public EnumVaccineStatus VaccineStatus { get; private set; }
+
+    public Vaccine() { }
+
+    public Vaccine(string name, string? manufacturer, int stock, string? batch, DateOnly validity, EnumVaccineStatus vaccineStatus)
+    {
+        Name = name;
+        Manufacturer = manufacturer;
+        Stock = stock;
+        Batch = batch;
+        Validity = validity;
+        VaccineStatus = vaccineStatus;
+    }
 }

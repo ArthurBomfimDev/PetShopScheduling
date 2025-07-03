@@ -30,13 +30,20 @@ public class Schedule : BaseEntry<Schedule, BaseDTO_0, BaseInputCreate_0, BaseIn
     [Column("observacao")]
     public string? Observation { get; private set; }
 
+    #region Virtual Properties
+    [NotMapped]
+    [ForeignKey(nameof(CustomerId))]
     public Customer Customer { get; private set; }
-    public List<Pet>? Pet { get; private set; }
-    public List<Vaccine>? Vaccine { get; private set; }
+    [NotMapped]
+    [ForeignKey(nameof(PetId))]
+    public Pet Pet { get; private set; }
+    [NotMapped]
+    public List<Vaccine>? ListVaccine { get; private set; }
+    #endregion
 
     public Schedule() { }
 
-    public Schedule(long customerId, long petId, bool hasVaccine, long? vaccineId, bool hasBath, bool hasGromming, EnumGroomingType groomingType, DateOnly day, DateTime time, string? observation, Customer customer, List<Pet>? pet, List<Vaccine>? vaccine)
+    public Schedule(long customerId, long petId, bool hasVaccine, long? vaccineId, bool hasBath, bool hasGromming, EnumGroomingType? groomingType, DateOnly day, DateTime time, string? observation, Customer customer, Pet pet, List<Vaccine>? listVaccine)
     {
         CustomerId = customerId;
         PetId = petId;
@@ -50,6 +57,6 @@ public class Schedule : BaseEntry<Schedule, BaseDTO_0, BaseInputCreate_0, BaseIn
         Observation = observation;
         Customer = customer;
         Pet = pet;
-        Vaccine = vaccine;
+        ListVaccine = listVaccine;
     }
 }
