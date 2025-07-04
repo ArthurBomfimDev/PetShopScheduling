@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace PetShopScheduling.Argument.Argument.Registration;
 
-public class InputUpdateCustomerAdress : BaseInputUpdate<InputUpdateCustomerAdress>
+public class InputUpdateCustomerAddress : BaseInputUpdate<InputUpdateCustomerAddress>
 {
     public long? CustomerId { get; private set; }
     public string? CEP { get; private set; }
@@ -12,10 +12,10 @@ public class InputUpdateCustomerAdress : BaseInputUpdate<InputUpdateCustomerAdre
     public string? Number { get; private set; }
     public string? Observation { get; private set; }
 
-    public InputUpdateCustomerAdress() { }
+    public InputUpdateCustomerAddress() { }
 
     [JsonConstructor]
-    public InputUpdateCustomerAdress(long? customerId, string? cEP, string? neighborhood, string? street, string? number, string? observation)
+    public InputUpdateCustomerAddress(long? customerId, string? cEP, string? neighborhood, string? street, string? number, string? observation)
     {
         CustomerId = customerId;
         CEP = cEP;

@@ -1,8 +1,8 @@
-﻿using PetShopScheduling.Argument.Argument.Registration;
+﻿using PetShopScheduling.Argument;
+using PetShopScheduling.Argument.Argument.Registration;
 using PetShopScheduling.Domain.DTO.Registration;
 using PetShopScheduling.Infrastructure.Entry.Base;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.CompilerServices;
 
 namespace PetShopScheduling.Infrastructure.Entry.Registration;
 
@@ -16,9 +16,9 @@ public class Customer : BaseEntry<Customer, CustomerDTO, InputCreateCustomer, In
 
     #region Virtual Properties
     [NotMapped]
-    public List<CustomerPhone> ListCustomerPhone { get; private set; }
+    public List<CustomerPhone>? ListCustomerPhone { get; private set; }
     [NotMapped]
-    public List<CustomerAddress> ListCustomerAddress { get; private set; }
+    public List<CustomerAddress>? ListCustomerAddress { get; private set; }
     #endregion
 
     public Customer() { }
@@ -31,13 +31,15 @@ public class Customer : BaseEntry<Customer, CustomerDTO, InputCreateCustomer, In
         ListCustomerAddress = listCustomerAddress;
     }
 
+    #region Implicit Operator
     public CustomerDTO GetDTO()
     {
-        return new CustomerDTO(Name, Cpf, ListCustomerPhone, ListCustomerAddress)
+        return new CustomerDTO(Name, Cpf, ListCustomerPhone.ExplicitCast<CustomerPhone, CustomerPhoneDTO>()!, ListCustomerAddress.ExplicitCast<CustomerAddress, CustomerAddressDTO>()!);
     }
 
     public static implicit operator CustomerDTO(Customer customer)
     {
-        return customer!.GetDTO();
+        return customer.GetDTO();
     }
+    #endregion
 }

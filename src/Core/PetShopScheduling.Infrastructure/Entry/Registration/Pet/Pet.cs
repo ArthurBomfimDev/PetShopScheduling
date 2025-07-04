@@ -1,15 +1,15 @@
-﻿using PetShopScheduling.Argument.Argument.Base;
+﻿using PetShopScheduling.Argument;
+using PetShopScheduling.Argument.Argument.Registration;
 using PetShopScheduling.Argument.Enum.EnumAnimalType;
 using PetShopScheduling.Argument.Enum.PetSize;
-using PetShopScheduling.Domain.DTO.Base;
+using PetShopScheduling.Domain.DTO.Registration;
 using PetShopScheduling.Infrastructure.Entry.Base;
-using PetShopScheduling.Infrastructure.Entry.Registration;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetShopScheduling.Infrastructure.Entry.Registration;
 
 [Table("pet")]
-public class Pet : BaseEntry<Pet, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_0, BaseInputIdentityUpdate_0, BaseInputIdentityDelete_0, BaseInputIdentityView_0, BaseOutput_0>
+public class Pet : BaseEntry<Pet, PetDTO, InputCreatePet, InputUpdatePet, InputIdentityUpdatePet, InputIdentityDeletePet, InputIdentityViewPet, OutputPet>
 {
     [Column("id_cliente")]
     public long CustomerId { get; private set; }  // Ver modo familia (classe auxiliar)
@@ -30,12 +30,15 @@ public class Pet : BaseEntry<Pet, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_
 
     #region Virtual Properties
     [NotMapped]
-    public List<Schedule> ListSchedule { get; private set; }
+    [ForeignKey(nameof(CustomerId))]
+    public Customer Customer { get; private set; }
+    [NotMapped]
+    public List<Schedule>? ListSchedule { get; private set; }
     #endregion
 
     public Pet() { }
 
-    public Pet(long customerId, string? identification, EnumAnimalType animalType, string? name, DateOnly? birthDate, string race, EnumPetSize petSize, string? observation, List<Schedule> listSchedule)
+    public Pet(long customerId, string? identification, EnumAnimalType animalType, string? name, DateOnly? birthDate, string? race, EnumPetSize? petSize, string? observation, Customer customer, List<Schedule> listSchedule)
     {
         CustomerId = customerId;
         Identification = identification;
@@ -45,6 +48,19 @@ public class Pet : BaseEntry<Pet, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_
         Race = race;
         PetSize = petSize;
         Observation = observation;
+        Customer = customer;
         ListSchedule = listSchedule;
     }
+
+    #region Implicit Operator
+    public PetDTO GetDTO()
+    {
+        return new PetDTO(CustomerId, Identification, AnimalType, Name, BirthDate, Race, PetSize, Observation, Customer, ListSchedule.ExplicitCast<Schedule, ScheduleDTO>());
+    }
+
+    public static implicit operator PetDTO(Pet pet)
+    {
+        return pet.GetDTO();
+    }
+    #endregion
 }

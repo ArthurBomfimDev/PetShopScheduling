@@ -1,6 +1,9 @@
-﻿namespace PetShopScheduling.Domain.DTO.Registration;
+﻿using PetShopScheduling.Argument.Argument.Registration;
+using PetShopScheduling.Domain.DTO.Base;
 
-public class ReservedVaccineDTO
+namespace PetShopScheduling.Domain.DTO.Registration;
+
+public class ReservedVaccineDTO : BaseDTO<ReservedVaccineDTO, InputCreateReservedVaccine, InputUpdateReservedVaccine, InputIdentityUpdateReservedVaccine, InputIdentityDeleteReservedVaccine, InputIdentityViewReservedVaccine, OutputReservedVaccine>
 {
     public long VaccineId { get; private set; }
     public long ScheduleId { get; private set; }

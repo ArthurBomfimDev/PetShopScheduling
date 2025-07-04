@@ -3,9 +3,9 @@ using System.Text.Json.Serialization;
 
 namespace PetShopScheduling.Argument.Argument.Registration;
 
-public class InputCreateCustomerPhone : BaseInputCreate<InputCreateCustomer>
+public class InputCreateCustomerPhone : BaseInputCreate<InputCreateCustomerPhone>
 {
-    public long? CustomerId { get; private set; } 
+    public long? CustomerId { get; private set; }
     public string PhoneNumber { get; private set; }
     public bool IsZapZap { get; private set; }
     public string? Observation { get; private set; }

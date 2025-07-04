@@ -1,8 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿namespace PetShopScheduling.Argument.Argument.Base;
 
-namespace PetShopScheduling.Argument.Argument.Base;
-
-public class BaseInputIdentityView<TInputIndetityView> where TInputIndetityView : BaseInputIdentityView<TInputIndetityView> 
+public class BaseInputIdentityView<TInputIndetityView> where TInputIndetityView : BaseInputIdentityView<TInputIndetityView>
 {
     public long Id { get; set; }
 

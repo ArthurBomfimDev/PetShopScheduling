@@ -1,10 +1,12 @@
-﻿using PetShopScheduling.Argument.Enum.EnumAnimalType;
+﻿using PetShopScheduling.Argument.Argument.Registration;
+using PetShopScheduling.Argument.Enum.EnumAnimalType;
 using PetShopScheduling.Argument.Enum.PetSize;
+using PetShopScheduling.Domain.DTO.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetShopScheduling.Domain.DTO.Registration;
 
-public class PetDTO
+public class PetDTO : BaseDTO<PetDTO, InputCreatePet, InputUpdatePet, InputIdentityUpdatePet, InputIdentityDeletePet, InputIdentityViewPet, OutputPet>
 {
     public long CustomerId { get; private set; }
     public string? Identification { get; private set; }
@@ -17,12 +19,14 @@ public class PetDTO
 
     #region Virtual Properties
     [NotMapped]
-    public List<ScheduleDTO> ListSchedule { get; private set; }
+    public CustomerDTO Customer { get; set; }
+    [NotMapped]
+    public List<ScheduleDTO>? ListSchedule { get; private set; }
     #endregion
 
     public PetDTO() { }
 
-    public PetDTO(long customerId, string? identification, EnumAnimalType animalType, string? name, DateOnly? birthDate, string? race, EnumPetSize? petSize, string? observation, List<ScheduleDTO> listSchedule)
+    public PetDTO(long customerId, string? identification, EnumAnimalType animalType, string? name, DateOnly? birthDate, string? race, EnumPetSize? petSize, string? observation, CustomerDTO customer, List<ScheduleDTO>? listSchedule)
     {
         CustomerId = customerId;
         Identification = identification;
@@ -32,6 +36,7 @@ public class PetDTO
         Race = race;
         PetSize = petSize;
         Observation = observation;
+        Customer = customer;
         ListSchedule = listSchedule;
     }
 }

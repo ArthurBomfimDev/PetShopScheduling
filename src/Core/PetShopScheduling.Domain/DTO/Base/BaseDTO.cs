@@ -2,7 +2,7 @@
 
 namespace PetShopScheduling.Domain.DTO.Base;
 
-public class BaseDTO<TDTO, TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete, TInputIdentityView, TOutput> 
+public class BaseDTO<TDTO, TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete, TInputIdentityView, TOutput>
     where TDTO : BaseDTO<TDTO, TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete, TInputIdentityView, TOutput>
     where TInputCreate : BaseInputCreate<TInputCreate>
     where TInputUpdate : BaseInputUpdate<TInputUpdate>

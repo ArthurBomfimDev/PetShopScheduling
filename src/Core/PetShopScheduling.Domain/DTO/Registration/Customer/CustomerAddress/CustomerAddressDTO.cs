@@ -1,6 +1,9 @@
-﻿namespace PetShopScheduling.Domain.DTO.Registration;
+﻿using PetShopScheduling.Argument.Argument.Registration;
+using PetShopScheduling.Domain.DTO.Base;
 
-public class CustomerAdressDTO
+namespace PetShopScheduling.Domain.DTO.Registration;
+
+public class CustomerAddressDTO : BaseDTO<CustomerAddressDTO, InputCreateCustomerAddress, InputUpdateCustomerAddress, InputIdentityUpdateCustomerAddress, InputIdentityDeleteCustomerAddress, InputIdentityViewCustomerAddress, OutputCustomerAddress>
 {
     public long CustomerId { get; private set; }
     public string? CEP { get; private set; }
@@ -13,9 +16,9 @@ public class CustomerAdressDTO
     public CustomerDTO Customer { get; private set; }
     #endregion
 
-    public CustomerAdressDTO() { }
+    public CustomerAddressDTO() { }
 
-    public CustomerAdressDTO(long customerId, string? cEP, string? neighborhood, string? street, string? number, string? observation, CustomerDTO customer)
+    public CustomerAddressDTO(long customerId, string? cEP, string? neighborhood, string? street, string? number, string? observation, CustomerDTO customer)
     {
         CustomerId = customerId;
         CEP = cEP;

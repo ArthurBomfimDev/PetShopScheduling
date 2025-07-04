@@ -1,13 +1,14 @@
-﻿using PetShopScheduling.Argument.Argument.Base;
+﻿using PetShopScheduling.Argument;
+using PetShopScheduling.Argument.Argument.Registration;
 using PetShopScheduling.Argument.Enum.GroomingType;
-using PetShopScheduling.Domain.DTO.Base;
+using PetShopScheduling.Domain.DTO.Registration;
 using PetShopScheduling.Infrastructure.Entry.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetShopScheduling.Infrastructure.Entry.Registration;
 
 [Table("agendamento")]
-public class Schedule : BaseEntry<Schedule, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_0, BaseInputIdentityUpdate_0, BaseInputIdentityDelete_0, BaseInputIdentityView_0, BaseOutput_0>
+public class Schedule : BaseEntry<Schedule, ScheduleDTO, InputCreateSchedule, InputUpdateSchedule, InputIdentityUpdateSchedule, InputIdentityDeleteSchedule, InputIdentityViewSchedule, OutputSchedule>
 {
     [Column("id_cliente")]
     public long CustomerId { get; private set; }
@@ -16,7 +17,7 @@ public class Schedule : BaseEntry<Schedule, BaseDTO_0, BaseInputCreate_0, BaseIn
     [Column("vacina")]
     public bool HasVaccine { get; private set; }
     [Column("id_vacina")]
-    public List<long>? VaccineId { get; private set; }
+    public long? VaccineId { get; private set; }
     [Column("banho")]
     public bool HasBath { get; private set; }
     [Column("tosa")]
@@ -59,4 +60,16 @@ public class Schedule : BaseEntry<Schedule, BaseDTO_0, BaseInputCreate_0, BaseIn
         Pet = pet;
         ListVaccine = listVaccine;
     }
+
+    #region Implicit Operator
+    public ScheduleDTO GetDTO()
+    {
+        return new ScheduleDTO(CustomerId, PetId, HasVaccine, VaccineId, HasBath, HasGromming, GroomingType, Day, Time, Observation, Customer, Pet, ListVaccine.ExplicitCast<Vaccine, VaccineDTO>());
+    }
+
+    public static implicit operator ScheduleDTO(Schedule schedule)
+    {
+        return schedule.GetDTO();
+    }
+    #endregion
 }

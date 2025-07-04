@@ -8,12 +8,12 @@ public class InputCreateCustomer : BaseInputCreate<InputCreateCustomer>
     public string Name { get; private set; }
     public string? Cpf { get; private set; }
     public List<InputCreateCustomerPhone>? ListInputCreateCustomerPhone { get; private set; }
-    public List<InputCreateCustomerAdress>? ListInputCreateCustomerAdress { get; private set; }
+    public List<InputCreateCustomerAddress>? ListInputCreateCustomerAdress { get; private set; }
 
     public InputCreateCustomer() { }
 
     [JsonConstructor]
-    public InputCreateCustomer(string name, string? cpf, List<InputCreateCustomerPhone>? listInputCreateCustomerPhone, List<InputCreateCustomerAdress>? listInputCreateCustomerAdress)
+    public InputCreateCustomer(string name, string? cpf, List<InputCreateCustomerPhone>? listInputCreateCustomerPhone, List<InputCreateCustomerAddress>? listInputCreateCustomerAdress)
     {
         Name = name;
         Cpf = cpf;

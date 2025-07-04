@@ -13,10 +13,16 @@ public class OutputVaccine : BaseOutput<OutputVaccine>
     public DateOnly Validity { get; private set; }
     public EnumVaccineStatus VaccineStatus { get; private set; }
 
+
+    #region Virtual Properties
+    public List<OutputSchedule>? ListSchedule { get; private set; }
+    public List<OutputReservedVaccine>? ListReservedVaccines { get; private set; }
+    #endregion
+
     public OutputVaccine() { }
 
     [JsonConstructor]
-    public OutputVaccine(string name, string? manufacturer, int stock, string? batch, DateOnly validity, EnumVaccineStatus vaccineStatus)
+    public OutputVaccine(string name, string? manufacturer, int stock, string? batch, DateOnly validity, EnumVaccineStatus vaccineStatus, List<OutputSchedule>? listSchedule, List<OutputReservedVaccine>? listReservedVaccines)
     {
         Name = name;
         Manufacturer = manufacturer;
@@ -24,5 +30,7 @@ public class OutputVaccine : BaseOutput<OutputVaccine>
         Batch = batch;
         Validity = validity;
         VaccineStatus = vaccineStatus;
+        ListSchedule = listSchedule;
+        ListReservedVaccines = listReservedVaccines;
     }
 }

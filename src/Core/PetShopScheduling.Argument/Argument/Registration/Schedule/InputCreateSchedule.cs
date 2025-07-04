@@ -33,4 +33,4 @@ public class InputCreateSchedule : BaseInputCreate<InputCreateSchedule>
         Time = time;
         Observation = observation;
     }
-}                            
+}

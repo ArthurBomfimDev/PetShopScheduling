@@ -1,12 +1,12 @@
-﻿using PetShopScheduling.Argument.Argument.Base;
-using PetShopScheduling.Domain.DTO.Base;
+﻿using PetShopScheduling.Argument.Argument.Registration;
+using PetShopScheduling.Domain.DTO.Registration;
 using PetShopScheduling.Infrastructure.Entry.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetShopScheduling.Infrastructure.Entry.Registration;
 
 [Table("endereco_usuario")]
-public class CustomerAddress : BaseEntry<CustomerAddress, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_0, BaseInputIdentityUpdate_0, BaseInputIdentityDelete_0, BaseInputIdentityView_0, BaseOutput_0>
+public class CustomerAddress : BaseEntry<CustomerAddress, CustomerAddressDTO, InputCreateCustomerAddress, InputUpdateCustomerAddress, InputIdentityUpdateCustomerAddress, InputIdentityDeleteCustomerAddress, InputIdentityViewCustomerAddress, OutputCustomerAddress>
 {
     [Column("id_cliente")]
     public long CustomerId { get; private set; }
@@ -39,4 +39,16 @@ public class CustomerAddress : BaseEntry<CustomerAddress, BaseDTO_0, BaseInputCr
         Observation = observation;
         Customer = customer;
     }
+
+    #region Implicit Operator
+    public CustomerAddressDTO GetDTO()
+    {
+        return new CustomerAddressDTO(CustomerId, CEP, Neighborhood, Street, Number, Observation, Customer);
+    }
+
+    public static implicit operator CustomerAddressDTO(CustomerAddress customerAddress)
+    {
+        return customerAddress.GetDTO();
+    }
+    #endregion 
 }

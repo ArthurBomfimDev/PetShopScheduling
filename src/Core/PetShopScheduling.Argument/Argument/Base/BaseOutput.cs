@@ -1,6 +1,6 @@
 ﻿namespace PetShopScheduling.Argument.Argument.Base;
 
-public class BaseOutput<TOutuput> where TOutuput : BaseOutput<TOutuput> 
+public class BaseOutput<TOutuput> where TOutuput : BaseOutput<TOutuput>
 {
     public long Id { get; private set; }
 

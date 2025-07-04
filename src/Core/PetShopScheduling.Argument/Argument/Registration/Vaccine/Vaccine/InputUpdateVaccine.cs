@@ -1,9 +1,10 @@
-﻿using PetShopScheduling.Argument.Enum.VaccineStatus;
+﻿using PetShopScheduling.Argument.Argument.Base;
+using PetShopScheduling.Argument.Enum.VaccineStatus;
 using System.Text.Json.Serialization;
 
 namespace PetShopScheduling.Argument.Argument.Registration;
 
-public class InputUpdateVaccine
+public class InputUpdateVaccine : BaseInputUpdate<InputUpdateVaccine>
 {
     public string Name { get; private set; }
     public string? Manufacturer { get; private set; }

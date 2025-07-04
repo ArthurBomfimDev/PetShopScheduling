@@ -1,6 +1,5 @@
 ﻿using PetShopScheduling.Argument.Argument.Base;
 using System.ComponentModel.DataAnnotations;
-using System.Runtime.CompilerServices;
 using System.Text.Json.Serialization;
 
 namespace PetShopScheduling.Argument.Argument.Registration;

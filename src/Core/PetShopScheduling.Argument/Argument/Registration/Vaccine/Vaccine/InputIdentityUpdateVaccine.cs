@@ -2,6 +2,4 @@
 
 namespace PetShopScheduling.Argument.Argument.Registration;
 
-public class InputIdentityUpdateVaccine : BaseInputIdentityUpdate<InputUpdateVaccine>
-{
-}
+public class InputIdentityUpdateVaccine(long id, InputUpdateVaccine? inputUpdate) : BaseInputIdentityUpdate<InputUpdateVaccine>(id, inputUpdate) { }

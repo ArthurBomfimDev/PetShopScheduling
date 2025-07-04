@@ -1,13 +1,14 @@
-﻿using PetShopScheduling.Argument.Argument.Base;
+﻿using PetShopScheduling.Argument;
+using PetShopScheduling.Argument.Argument.Registration;
 using PetShopScheduling.Argument.Enum.VaccineStatus;
-using PetShopScheduling.Domain.DTO.Base;
+using PetShopScheduling.Domain.DTO.Registration;
 using PetShopScheduling.Infrastructure.Entry.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetShopScheduling.Infrastructure.Entry.Registration;
 
 [Table("vacina")]
-public class Vaccine : BaseEntry<Vaccine, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_0, BaseInputIdentityUpdate_0, BaseInputIdentityDelete_0, BaseInputIdentityView_0, BaseOutput_0>
+public class Vaccine : BaseEntry<Vaccine, VaccineDTO, InputCreateVaccine, InputUpdateVaccine, InputIdentityUpdateVaccine, InputIdentityDeleteVaccine, InputIdentityViewVaccine, OutputVaccine>
 {
     [Column("nome")]
     public string Name { get; private set; }
@@ -22,9 +23,16 @@ public class Vaccine : BaseEntry<Vaccine, BaseDTO_0, BaseInputCreate_0, BaseInpu
     [Column("status_vacina")]
     public EnumVaccineStatus VaccineStatus { get; private set; }
 
+    #region Virtual Properties
+    [NotMapped]
+    public List<Schedule>? ListSchedule { get; private set; }
+    [NotMapped]
+    public List<ReservedVaccine>? ListReservedVaccines { get; private set; }
+    #endregion
+
     public Vaccine() { }
 
-    public Vaccine(string name, string? manufacturer, int stock, string? batch, DateOnly validity, EnumVaccineStatus vaccineStatus)
+    public Vaccine(string name, string? manufacturer, int stock, string? batch, DateOnly validity, EnumVaccineStatus vaccineStatus, List<Schedule> listSchedule, List<ReservedVaccine> listReservedVaccines)
     {
         Name = name;
         Manufacturer = manufacturer;
@@ -32,5 +40,17 @@ public class Vaccine : BaseEntry<Vaccine, BaseDTO_0, BaseInputCreate_0, BaseInpu
         Batch = batch;
         Validity = validity;
         VaccineStatus = vaccineStatus;
+        ListSchedule = listSchedule;
+        ListReservedVaccines = listReservedVaccines;
+    }
+
+    public VaccineDTO GetDTO()
+    {
+        return new VaccineDTO(Name, Manufacturer, Stock, Batch, Validity, VaccineStatus, ListSchedule.ExplicitCast<Schedule, ScheduleDTO>(), ListReservedVaccines.ExplicitCast<ReservedVaccine, ReservedVaccineDTO>());
+    }
+
+    public static implicit operator VaccineDTO(Vaccine vaccine)
+    {
+        return vaccine.GetDTO();
     }
 }

@@ -1,8 +1,10 @@
-﻿using PetShopScheduling.Argument.Enum.GroomingType;
+﻿using PetShopScheduling.Argument.Argument.Registration;
+using PetShopScheduling.Argument.Enum.GroomingType;
+using PetShopScheduling.Domain.DTO.Base;
 
 namespace PetShopScheduling.Domain.DTO.Registration;
 
-public class ScheduleDTO
+public class ScheduleDTO : BaseDTO<ScheduleDTO, InputCreateSchedule, InputUpdateSchedule, InputIdentityUpdateSchedule, InputIdentityDeleteSchedule, InputIdentityViewSchedule, OutputSchedule>
 {
     public long CustomerId { get; private set; }
     public long PetId { get; private set; }

@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Internal\ApiResponse\" />
-    <Folder Include="Argument\Registration\Vaccine\ReservedVaccine\" />
   </ItemGroup>
 
 </Project>

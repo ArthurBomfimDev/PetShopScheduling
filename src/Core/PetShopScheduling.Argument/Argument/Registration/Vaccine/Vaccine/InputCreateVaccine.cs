@@ -1,6 +1,5 @@
 ﻿using PetShopScheduling.Argument.Argument.Base;
 using PetShopScheduling.Argument.Enum.VaccineStatus;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace PetShopScheduling.Argument.Argument.Registration;

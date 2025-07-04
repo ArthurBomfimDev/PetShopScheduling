@@ -1,6 +1,9 @@
-﻿namespace PetShopScheduling.Domain.DTO.Registration;
+﻿using PetShopScheduling.Argument.Argument.Registration;
+using PetShopScheduling.Domain.DTO.Base;
 
-public class CustomerPhoneDTO
+namespace PetShopScheduling.Domain.DTO.Registration;
+
+public class CustomerPhoneDTO : BaseDTO<CustomerPhoneDTO, InputCreateCustomerPhone, InputUpdateCustomerPhone, InputIdentityUpdateCustomerPhone, InputIdentityDeleteCustomerPhone, InputIdentityViewCustomerPhone, OutputCustomerPhone>
 {
     public long CustomerId { get; private set; }
     public string PhoneNumber { get; private set; }
