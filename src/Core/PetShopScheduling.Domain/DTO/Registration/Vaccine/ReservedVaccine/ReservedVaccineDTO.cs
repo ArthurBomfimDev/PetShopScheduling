@@ -1,6 +1,6 @@
 ﻿namespace PetShopScheduling.Domain.DTO.Registration;
 
-public class ReservedVaccinesDTO
+public class ReservedVaccineDTO
 {
     public long VaccineId { get; private set; }
     public long ScheduleId { get; private set; }
@@ -10,9 +10,9 @@ public class ReservedVaccinesDTO
     public ScheduleDTO Schedule { get; private set; }
     #endregion
 
-    public ReservedVaccinesDTO() { }
+    public ReservedVaccineDTO() { }
 
-    public ReservedVaccinesDTO(long vaccineId, long scheduleId, VaccineDTO vaccine, ScheduleDTO schedule)
+    public ReservedVaccineDTO(long vaccineId, long scheduleId, VaccineDTO vaccine, ScheduleDTO schedule)
     {
         VaccineId = vaccineId;
         ScheduleId = scheduleId;

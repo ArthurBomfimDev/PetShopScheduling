@@ -1,0 +1,33 @@
+﻿using PetShopScheduling.Argument.Argument.Base;
+using PetShopScheduling.Argument.Enum.EnumAnimalType;
+using PetShopScheduling.Argument.Enum.PetSize;
+using System.Text.Json.Serialization;
+
+namespace PetShopScheduling.Argument.Argument.Registration;
+
+public class InputCreatePet : BaseInputCreate<InputCreatePet>
+{
+    public long CustomerId { get; private set; }
+    public string? Identification { get; private set; }
+    public EnumAnimalType AnimalType { get; private set; }
+    public string? Name { get; private set; }
+    public DateOnly? BirthDate { get; private set; }
+    public string? Race { get; private set; }
+    public EnumPetSize? PetSize { get; private set; }
+    public string? Observation { get; private set; }
+
+    public InputCreatePet() { }
+
+    [JsonConstructor]
+    public InputCreatePet(long customerId, string? identification, EnumAnimalType animalType, string? name, DateOnly? birthDate, string? race, EnumPetSize? petSize, string? observation)
+    {
+        CustomerId = customerId;
+        Identification = identification;
+        AnimalType = animalType;
+        Name = name;
+        BirthDate = birthDate;
+        Race = race;
+        PetSize = petSize;
+        Observation = observation;
+    }
+}

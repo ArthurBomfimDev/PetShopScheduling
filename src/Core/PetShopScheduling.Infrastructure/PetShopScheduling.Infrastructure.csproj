@@ -17,7 +17,7 @@
     <Folder Include="Repository\Registration\Customer\Customer\" />
     <Folder Include="Repository\Registration\Pet\" />
     <Folder Include="Repository\Registration\Schedule\" />
-    <Folder Include="Repository\Registration\Vaccine\ReservedVaccines\" />
+    <Folder Include="Repository\Registration\Vaccine\ReservedVaccine\" />
     <Folder Include="Repository\Registration\Vaccine\Vaccine\" />
   </ItemGroup>
 

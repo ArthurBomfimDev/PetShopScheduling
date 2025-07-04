@@ -8,10 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Internal\ApiResponse\" />
-    <Folder Include="Argument\Registration\Schedule\" />
-    <Folder Include="Argument\Registration\Pet\" />
-    <Folder Include="Argument\Registration\Vaccine\ReservedVaccines\" />
-    <Folder Include="Argument\Registration\Vaccine\Vaccine\" />
+    <Folder Include="Argument\Registration\Vaccine\ReservedVaccine\" />
   </ItemGroup>
 
 </Project>

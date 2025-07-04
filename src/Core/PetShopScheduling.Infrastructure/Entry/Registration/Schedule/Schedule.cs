@@ -16,7 +16,7 @@ public class Schedule : BaseEntry<Schedule, BaseDTO_0, BaseInputCreate_0, BaseIn
     [Column("vacina")]
     public bool HasVaccine { get; private set; }
     [Column("id_vacina")]
-    public long? VaccineId { get; private set; }
+    public List<long>? VaccineId { get; private set; }
     [Column("banho")]
     public bool HasBath { get; private set; }
     [Column("tosa")]

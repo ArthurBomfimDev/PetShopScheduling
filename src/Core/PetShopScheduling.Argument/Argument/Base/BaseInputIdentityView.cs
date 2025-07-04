@@ -6,10 +6,9 @@ public class BaseInputIdentityView<TInputIndetityView> where TInputIndetityView 
 {
     public long Id { get; set; }
 
-    protected BaseInputIdentityView() { }
+    public BaseInputIdentityView() { }
 
-    [JsonConstructor]
-    protected BaseInputIdentityView(long id)
+    public BaseInputIdentityView(long id)
     {
         Id = id;
     }

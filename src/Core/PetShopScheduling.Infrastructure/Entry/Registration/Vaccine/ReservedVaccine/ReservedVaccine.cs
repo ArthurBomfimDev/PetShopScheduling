@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace PetShopScheduling.Infrastructure.Entry.Registration;
 
 [Table("vacina_reservada")]
-public class ReservedVaccines : BaseEntry<ReservedVaccines, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_0, BaseInputIdentityUpdate_0, BaseInputIdentityDelete_0, BaseInputIdentityView_0, BaseOutput_0>
+public class ReservedVaccine : BaseEntry<ReservedVaccine, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_0, BaseInputIdentityUpdate_0, BaseInputIdentityDelete_0, BaseInputIdentityView_0, BaseOutput_0>
 {
     [Column("id_vacina")]
     public long VaccineId { get; private set; }
@@ -22,9 +22,9 @@ public class ReservedVaccines : BaseEntry<ReservedVaccines, BaseDTO_0, BaseInput
     public Schedule Schedule { get; private set; }
     #endregion
 
-    public ReservedVaccines() { }
+    public ReservedVaccine() { }
 
-    public ReservedVaccines(long vaccineId, long scheduleId, Vaccine vaccine, Schedule schedule)
+    public ReservedVaccine(long vaccineId, long scheduleId, Vaccine vaccine, Schedule schedule)
     {
         VaccineId = vaccineId;
         ScheduleId = scheduleId;
