@@ -55,7 +55,7 @@ public class Pet : BaseEntry<Pet, PetDTO, InputCreatePet, InputUpdatePet, InputI
     #region Implicit Operator
     public PetDTO GetDTO()
     {
-        return new PetDTO(CustomerId, Identification, AnimalType, Name, BirthDate, Race, PetSize, Observation, Customer, ListSchedule.ExplicitCast<Schedule, ScheduleDTO>());
+        return new PetDTO(CustomerId, Identification, AnimalType, Name, BirthDate, Race, PetSize, Observation, Customer, ListSchedule.ExplicitCast<ScheduleDTO>());
     }
 
     public static implicit operator PetDTO(Pet pet)

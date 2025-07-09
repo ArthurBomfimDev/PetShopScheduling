@@ -19,3 +19,5 @@ public abstract class BaseEntry<TEntry, TDTO, TInputCreate, TInputUpdate, TInput
     [Column("id")]
     public long Id { get; set; }
 }
+
+public class BaseEntry_0 : BaseEntry<BaseEntry_0, BaseDTO_0, BaseInputCreate_0, BaseInputUpdate_0, BaseInputIdentityUpdate_0, BaseInputIdentityDelete_0, BaseInputIdentityView_0, BaseOutput_0> { }

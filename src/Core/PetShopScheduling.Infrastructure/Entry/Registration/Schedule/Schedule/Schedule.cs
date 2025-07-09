@@ -64,7 +64,7 @@ public class Schedule : BaseEntry<Schedule, ScheduleDTO, InputCreateSchedule, In
     #region Implicit Operator
     public ScheduleDTO GetDTO()
     {
-        return new ScheduleDTO(CustomerId, PetId, HasVaccine, VaccineId, HasBath, HasGromming, GroomingType, Day, Time, Observation, Customer, Pet, ListVaccine.ExplicitCast<Vaccine, VaccineDTO>());
+        return new ScheduleDTO(CustomerId, PetId, HasVaccine, VaccineId, HasBath, HasGromming, GroomingType, Day, Time, Observation, Customer, Pet, ListVaccine.ExplicitCast<VaccineDTO>());
     }
 
     public static implicit operator ScheduleDTO(Schedule schedule)

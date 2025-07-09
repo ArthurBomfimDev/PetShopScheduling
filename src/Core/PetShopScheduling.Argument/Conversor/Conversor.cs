@@ -1,11 +1,15 @@
-﻿namespace PetShopScheduling.Argument;
+﻿using System.Collections;
+
+namespace PetShopScheduling.Argument;
 
 public static class Conversor
 {
-    public static List<TDestination>? ExplicitCast<TSource, TDestination>(this List<TSource>? listSource)
-        where TSource : class, new()
-        where TDestination : class, new()
+    public static List<TDestination> ExplicitCast<TDestination>(this IList? listSource)
+        where TDestination : class
     {
-        return (from i in listSource select (TDestination)(dynamic)i).ToList() ?? default;
+        if (listSource == null)
+            return new List<TDestination>();
+
+        return (from i in listSource.OfType<dynamic>() select (TDestination)i).ToList();
     }
 }

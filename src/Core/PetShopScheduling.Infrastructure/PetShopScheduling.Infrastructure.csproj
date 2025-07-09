@@ -1,24 +1,39 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\PetShopScheduling.Argument\PetShopScheduling.Argument.csproj" />
-    <ProjectReference Include="..\PetShopScheduling.Domain\PetShopScheduling.Domain.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Repository\Registration\Customer\CustomerAdress\**" />
+		<EmbeddedResource Remove="Repository\Registration\Customer\CustomerAdress\**" />
+		<None Remove="Repository\Registration\Customer\CustomerAdress\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repository\Registration\Customer\CustomerAdress\" />
-    <Folder Include="Repository\Registration\Customer\CustomerPhone\" />
-    <Folder Include="Repository\Registration\Customer\Customer\" />
-    <Folder Include="Repository\Registration\Pet\" />
-    <Folder Include="Repository\Registration\Schedule\" />
-    <Folder Include="Repository\Registration\Vaccine\ReservedVaccine\" />
-    <Folder Include="Repository\Registration\Vaccine\Vaccine\" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\PetShopScheduling.Argument\PetShopScheduling.Argument.csproj" />
+		<ProjectReference Include="..\PetShopScheduling.Domain\PetShopScheduling.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Repository\Registration\Schedule\" />
+		<Folder Include="Repository\Registration\Vaccine\ReservedVaccine\" />
+		<Folder Include="Repository\Registration\Vaccine\Vaccine\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.6" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.6">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.6" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
+	</ItemGroup>
 
 </Project>

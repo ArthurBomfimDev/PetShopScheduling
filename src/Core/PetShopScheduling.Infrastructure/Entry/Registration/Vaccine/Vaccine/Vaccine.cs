@@ -10,7 +10,7 @@ namespace PetShopScheduling.Infrastructure.Entry.Registration;
 [Table("vacina")]
 public class Vaccine : BaseEntry<Vaccine, VaccineDTO, InputCreateVaccine, InputUpdateVaccine, InputIdentityUpdateVaccine, InputIdentityDeleteVaccine, InputIdentityViewVaccine, OutputVaccine>
 {
-    [Column("nome")]
+    [Column("nome")] // Talvez Trocar para um serviceItem????
     public string Name { get; private set; }
     [Column("fabricante")]
     public string? Manufacturer { get; private set; }
@@ -25,7 +25,7 @@ public class Vaccine : BaseEntry<Vaccine, VaccineDTO, InputCreateVaccine, InputU
 
     #region Virtual Properties
     [NotMapped]
-    public List<Schedule>? ListSchedule { get; private set; }
+    public List<Schedule> ListSchedule { get; private set; }
     [NotMapped]
     public List<ReservedVaccine>? ListReservedVaccines { get; private set; }
     #endregion
@@ -44,13 +44,15 @@ public class Vaccine : BaseEntry<Vaccine, VaccineDTO, InputCreateVaccine, InputU
         ListReservedVaccines = listReservedVaccines;
     }
 
+    #region Implicit Operator
     public VaccineDTO GetDTO()
     {
-        return new VaccineDTO(Name, Manufacturer, Stock, Batch, Validity, VaccineStatus, ListSchedule.ExplicitCast<Schedule, ScheduleDTO>(), ListReservedVaccines.ExplicitCast<ReservedVaccine, ReservedVaccineDTO>());
+        return new VaccineDTO(Name, Manufacturer, Stock, Batch, Validity, VaccineStatus, ListSchedule.ExplicitCast<ScheduleDTO>(), ListReservedVaccines.ExplicitCast<ReservedVaccineDTO>());
     }
 
     public static implicit operator VaccineDTO(Vaccine vaccine)
     {
         return vaccine.GetDTO();
     }
+    #endregion
 }

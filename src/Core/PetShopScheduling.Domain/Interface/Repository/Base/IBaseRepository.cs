@@ -12,4 +12,10 @@ public interface IBaseRepository<TDTO, TInputCreate, TInputUpdate, TInputIdentit
     where TInputIdentityView : BaseInputIdentityView<TInputIdentityView>
     where TOutput : BaseOutput<TOutput>
 {
+    Task<List<TDTO>?> GetAll();
+    Task<List<TDTO>?> GetListByListId(List<long> listId);
+    Task<TDTO?> Get(long id);
+    Task<List<TDTO>?> Create(List<TDTO> listDTO);
+    Task<bool> Update(List<TDTO> listDTO);
+    Task<bool> Delete(List<TDTO> listDTO);
 }

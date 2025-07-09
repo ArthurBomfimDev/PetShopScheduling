@@ -8,12 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Registration\Customer\CustomerAdress\" />
-    <Folder Include="Controllers\Registration\Customer\CustomerPhone\" />
-    <Folder Include="Controllers\Registration\Pet\" />
     <Folder Include="Controllers\Registration\Schedule\" />
     <Folder Include="Controllers\Registration\Vaccine\ReservedVaccine\" />
     <Folder Include="Controllers\Registration\Vaccine\Vaccine\" />
@@ -22,6 +24,13 @@
   <ItemGroup>
     <ProjectReference Include="..\PetShopScheduling.Domain\PetShopScheduling.Domain.csproj" />
     <ProjectReference Include="..\PetShopScheduling.Infrastructure\PetShopScheduling.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="petshop.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

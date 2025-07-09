@@ -1,14 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PetShopScheduling.Api.Controllers.Base;
 using PetShopScheduling.Argument.Argument.Registration;
+using PetShopScheduling.Domain.DTO.Registration;
+using PetShopScheduling.Domain.Interface.Service.Registration;
+using PetShopScheduling.Domain.Interface.UnitOfWork;
+using PetShopScheduling.Infrastructure.Entry.Registration;
+using PetShopScheduling.Infrastructure.Repository.Registration;
 
 namespace PetShopScheduling.Api.Controllers.Registration;
 
-[Route("Api/[controller]")]
-public class CustomerController : Controller
+public class CustomerController : BaseController<ICustomerService, Customer, CustomerDTO, InputCreateCustomer, InputUpdateCustomer, InputIdentityUpdateCustomer, InputIdentityDeleteCustomer, InputIdentityViewCustomer, OutputCustomer, ICustomerRepository>
 {
-    [HttpPost("Create")]
-    public ActionResult CreateCustomer([FromBody] InputCreateCustomer inputCreateCustomer)
+    public CustomerController(ICustomerService service, IUnitOfWork unitOfWork) : base(service, unitOfWork) { }
+
+
+    [HttpGet("Get/ByName")]
+    public ActionResult<List<OutputCustomer>> GetByName(string name)
     {
-        return Ok("console.log('passou aqui')");
+        var getAll = _service.GetByName(name);
+        return Ok(getAll);
     }
 }

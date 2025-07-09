@@ -14,4 +14,13 @@ public interface IBaseService<TDTO, TInputCreate, TInputUpdate, TInputIdentityUp
     where TOutput : BaseOutput<TOutput>
     where TRepository : IBaseRepository<TDTO, TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete, TInputIdentityView, TOutput>
 {
+    Task<List<TOutput>?> GetAll();
+    Task<TOutput?> Get(TInputIdentityView inputIdentifyViewDTO);
+    Task<List<TOutput>?> GetListByListId(List<TInputIdentityView> listTInputIdentityViewDTO);
+    Task<TOutput?> Create(TInputCreate inputCreateDTO);
+    Task<List<TOutput>?> CreateMultiple(List<TInputCreate> listInputCreateDTO);
+    Task<bool> Update(TInputIdentityUpdate inputIdentityUpdateDTO);
+    Task<bool> UpdateMultiple(List<TInputIdentityUpdate> listInputIdentityUpdateDTO);
+    Task<bool> Delete(TInputIdentityDelete inputIdentifyDeleteDTO);
+    Task<bool> DeleteMultiple(List<TInputIdentityDelete> listInputIdentityDeleteDTO);
 }

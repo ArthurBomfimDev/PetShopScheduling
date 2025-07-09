@@ -34,7 +34,7 @@ public class Customer : BaseEntry<Customer, CustomerDTO, InputCreateCustomer, In
     #region Implicit Operator
     public CustomerDTO GetDTO()
     {
-        return new CustomerDTO(Name, Cpf, ListCustomerPhone.ExplicitCast<CustomerPhone, CustomerPhoneDTO>()!, ListCustomerAddress.ExplicitCast<CustomerAddress, CustomerAddressDTO>()!);
+        return new CustomerDTO(Name, Cpf, ListCustomerPhone.ExplicitCast<CustomerPhoneDTO>(), ListCustomerAddress.ExplicitCast<CustomerAddressDTO>());
     }
 
     public static implicit operator CustomerDTO(Customer customer)
