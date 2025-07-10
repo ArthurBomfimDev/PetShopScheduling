@@ -7,7 +7,9 @@ namespace PetShopScheduling.Argument.Argument.Registration;
 public class OutputCustomer : BaseOutput<OutputCustomer>
 {
     [Required]
+    [MaxLength(100)]
     public string Name { get; private set; }
+    [MaxLength(11)]
     public string? Cpf { get; private set; }
 
     #region Virtual Properties

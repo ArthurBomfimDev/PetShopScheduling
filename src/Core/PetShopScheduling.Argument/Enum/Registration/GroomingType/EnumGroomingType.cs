@@ -1,4 +1,4 @@
-﻿namespace PetShopScheduling.Argument.Enum.GroomingType;
+﻿namespace PetShopScheduling.Argument.Enum.Registration.GroomingType;
 
 public enum EnumGroomingType
 {

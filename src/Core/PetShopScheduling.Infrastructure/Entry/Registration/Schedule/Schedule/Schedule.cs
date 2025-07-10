@@ -1,6 +1,6 @@
 ﻿using PetShopScheduling.Argument;
 using PetShopScheduling.Argument.Argument.Registration;
-using PetShopScheduling.Argument.Enum.GroomingType;
+using PetShopScheduling.Argument.Enum.Registration.GroomingType;
 using PetShopScheduling.Domain.DTO.Registration;
 using PetShopScheduling.Infrastructure.Entry.Base;
 using System.ComponentModel.DataAnnotations.Schema;

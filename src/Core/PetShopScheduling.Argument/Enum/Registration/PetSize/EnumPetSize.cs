@@ -1,4 +1,4 @@
-﻿namespace PetShopScheduling.Argument.Enum.PetSize;
+﻿namespace PetShopScheduling.Argument.Enum.Registration.PetSize;
 
 public enum EnumPetSize
 {

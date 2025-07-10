@@ -1,4 +1,4 @@
-﻿namespace PetShopScheduling.Argument.Enum.VaccineStatus;
+﻿namespace PetShopScheduling.Argument.Enum.Registration.VaccineStatus;
 
 public enum EnumVaccineStatus
 {

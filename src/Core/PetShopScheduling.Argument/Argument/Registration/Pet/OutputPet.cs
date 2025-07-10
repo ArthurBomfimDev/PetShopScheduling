@@ -1,6 +1,6 @@
 ﻿using PetShopScheduling.Argument.Argument.Base;
-using PetShopScheduling.Argument.Enum.EnumAnimalType;
-using PetShopScheduling.Argument.Enum.PetSize;
+using PetShopScheduling.Argument.Enum.Registration.EnumAnimalType;
+using PetShopScheduling.Argument.Enum.Registration.PetSize;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 

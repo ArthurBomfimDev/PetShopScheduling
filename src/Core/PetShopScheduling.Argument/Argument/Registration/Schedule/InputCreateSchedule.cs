@@ -1,5 +1,5 @@
 ﻿using PetShopScheduling.Argument.Argument.Base;
-using PetShopScheduling.Argument.Enum.GroomingType;
+using PetShopScheduling.Argument.Enum.Registration.GroomingType;
 using System.Text.Json.Serialization;
 
 namespace PetShopScheduling.Argument.Argument.Registration;

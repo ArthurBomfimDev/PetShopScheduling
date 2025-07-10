@@ -1,5 +1,5 @@
 ﻿using PetShopScheduling.Argument.Argument.Registration;
-using PetShopScheduling.Argument.Enum.VaccineStatus;
+using PetShopScheduling.Argument.Enum.Registration.VaccineStatus;
 using PetShopScheduling.Domain.DTO.Base;
 
 namespace PetShopScheduling.Domain.DTO.Registration;
