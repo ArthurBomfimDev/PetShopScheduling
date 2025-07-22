@@ -9,7 +9,7 @@ using PetShopScheduling.Domain.Interface.Service.Base;
 namespace PetShopScheduling.Domain.Service.Base;
 
 public class BaseValidateService<TValidateDTO, TOutput, TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete> : BaseValidate<TValidateDTO, TOutput, TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete>, IBaseValidateService
-    where TValidateDTO : BaseValidateDTO/*<TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete>*/
+    where TValidateDTO : BaseValidateDTO_1<TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete>
     where TOutput : BaseOutput<TOutput>
     where TInputCreate : BaseInputCreate<TInputCreate>
     where TInputUpdate : BaseInputUpdate<TInputUpdate>
@@ -31,7 +31,6 @@ public class BaseValidateService<TValidateDTO, TOutput, TInputCreate, TInputUpda
          where i.InputUpdate == null
          let setIgnore = i.SetIgnore()
          select i).ToList();
-
     }
 
     public ApiResponse<TValidateDTO> ValidateLength(ApiResponse<TOutput> apiResponse, List<TValidateDTO> listValidateDTO)
