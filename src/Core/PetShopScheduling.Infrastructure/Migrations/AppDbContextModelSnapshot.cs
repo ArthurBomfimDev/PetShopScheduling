@@ -112,7 +112,7 @@ namespace PetShopScheduling.Infrastructure.Migrations
                         .HasColumnType("INTEGER")
                         .HasColumnName("id");
 
-                    b.Property<int>("AnimalType")
+                    b.Property<int>("SpecieType")
                         .HasColumnType("INTEGER")
                         .HasColumnName("tipo_animal");
 

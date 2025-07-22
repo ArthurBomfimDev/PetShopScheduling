@@ -1,5 +1,5 @@
 ﻿using PetShopScheduling.Argument.Argument.Base;
-using PetShopScheduling.Argument.Enum.Registration.EnumAnimalType;
+using PetShopScheduling.Argument.Enum.Registration.SpecieType;
 using PetShopScheduling.Argument.Enum.Registration.PetSize;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
@@ -11,7 +11,7 @@ public class OutputPet : BaseOutput<OutputPet>
     [Required]
     public long CustomerId { get; private set; }
     public string? Identification { get; private set; }
-    public EnumAnimalType AnimalType { get; private set; }
+    public EnumSpecieType SpecieType { get; private set; }
     public string? Name { get; private set; }
     public DateOnly? BirthDate { get; private set; }
     public string? Race { get; private set; }
@@ -25,11 +25,11 @@ public class OutputPet : BaseOutput<OutputPet>
     public OutputPet() { }
 
     [JsonConstructor]
-    public OutputPet(long customerId, string? identification, EnumAnimalType animalType, string? name, DateOnly? birthDate, string? race, EnumPetSize? petSize, string? observation, List<OutputSchedule>? listSchedule)
+    public OutputPet(long customerId, string? identification, EnumSpecieType specieType, string? name, DateOnly? birthDate, string? race, EnumPetSize? petSize, string? observation, List<OutputSchedule>? listSchedule)
     {
         CustomerId = customerId;
         Identification = identification;
-        AnimalType = animalType;
+        SpecieType = specieType;
         Name = name;
         BirthDate = birthDate;
         Race = race;

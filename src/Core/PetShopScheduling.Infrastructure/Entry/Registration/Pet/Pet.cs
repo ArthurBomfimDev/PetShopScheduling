@@ -1,6 +1,6 @@
 ﻿using PetShopScheduling.Argument;
 using PetShopScheduling.Argument.Argument.Registration;
-using PetShopScheduling.Argument.Enum.Registration.EnumAnimalType;
+using PetShopScheduling.Argument.Enum.Registration.EnumSpecieType;
 using PetShopScheduling.Argument.Enum.Registration.PetSize;
 using PetShopScheduling.Domain.DTO.Registration;
 using PetShopScheduling.Infrastructure.Entry.Base;
@@ -16,7 +16,7 @@ public class Pet : BaseEntry<Pet, PetDTO, InputCreatePet, InputUpdatePet, InputI
     [Column("identificação")]
     public string? Identification { get; private set; }
     [Column("tipo_animal")]
-    public EnumAnimalType AnimalType { get; private set; }
+    public EnumSpecieType SpecieType { get; private set; }
     [Column("nome")]
     public string? Name { get; private set; }
     [Column("data_nascimento")]
@@ -38,11 +38,11 @@ public class Pet : BaseEntry<Pet, PetDTO, InputCreatePet, InputUpdatePet, InputI
 
     public Pet() { }
 
-    public Pet(long customerId, string? identification, EnumAnimalType animalType, string? name, DateOnly? birthDate, string? race, EnumPetSize? petSize, string? observation, Customer customer, List<Schedule> listSchedule)
+    public Pet(long customerId, string? identification, EnumSpecieType specieType, string? name, DateOnly? birthDate, string? race, EnumPetSize? petSize, string? observation, Customer customer, List<Schedule> listSchedule)
     {
         CustomerId = customerId;
         Identification = identification;
-        AnimalType = animalType;
+        SpecieType = specieType;
         Name = name;
         BirthDate = birthDate;
         Race = race;
@@ -55,7 +55,7 @@ public class Pet : BaseEntry<Pet, PetDTO, InputCreatePet, InputUpdatePet, InputI
     #region Implicit Operator
     public PetDTO GetDTO()
     {
-        return new PetDTO(CustomerId, Identification, AnimalType, Name, BirthDate, Race, PetSize, Observation, Customer, ListSchedule.ExplicitCast<ScheduleDTO>());
+        return new PetDTO(CustomerId, Identification, SpecieType, Name, BirthDate, Race, PetSize, Observation, Customer, ListSchedule.ExplicitCast<ScheduleDTO>());
     }
 
     public static implicit operator PetDTO(Pet pet)

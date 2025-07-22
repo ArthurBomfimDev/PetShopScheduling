@@ -61,7 +61,7 @@ public class BaseService<TDTO, TInputCreate, TInputUpdate, TInputIdentityUpdate,
     {
         var create = await CreateMultiple([inputCreateDTO]);
 
-        return create.FirstOrDefault();
+        return create!.FirstOrDefault();
     }
 
     public Task<List<TOutput>?> CreateMultiple(List<TInputCreate> listInputCreateDTO)
@@ -91,6 +91,47 @@ public class BaseService<TDTO, TInputCreate, TInputUpdate, TInputIdentityUpdate,
     public Task<bool> DeleteMultiple(List<TInputIdentityDelete> listInputIdentityDeleteDTO)
     {
         throw new NotImplementedException();
+    }
+    #endregion
+
+    #region Validate
+    public void ValidateLength<TValidateDTO>(List<TValidateDTO> listValidateDTO) where TValidateDTO : BaseValidateDTO_1<TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete>
+    {
+        foreach (var validateDTO in listValidateDTO)
+        {
+            ValidateLength(validateDTO);
+        }
+    }
+
+    public EnumValidateType ValidateLength<TValidateDTO>(TValidateDTO validateDTO) where TValidateDTO : BaseValidateDTO_1<TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete>
+    {
+        var validate = CreateOrUpdate(validateDTO);
+
+        if(validate == null)
+            return EnumValidateType.NonInformed;
+
+        List<PropertyInfo> listProperties = validate?.GetType().GetProperties().ToList() ?? new List<PropertyInfo>();
+
+        var validateMaxLenghtproperty = (from i in listProperties
+                                     let maxLenght = typeof(TOutput).GetProperty(i.Name)?.GetCustomAttribute<MaxLengthAttribute>() ?? null
+                                     where maxLenght != null
+                                     let currentLenght = i.GetValue(validate)?.ToString() ?? null
+                                     where currentLenght != null && currentLenght.Length > maxLenght.Length
+                                     let setInvalid = validateDTO.SetInvalid()
+                                     select true).FirstOrDefault();
+
+        return validateMaxLenghtproperty == true ? EnumValidateType.Invalid : EnumValidateType.Valid;
+    }
+
+    public dynamic? CreateOrUpdate<TValidateDTO>(TValidateDTO validateDTO) where TValidateDTO : BaseValidateDTO_1<TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete>
+    {
+        if (validateDTO.InputCreate != null)
+            return validateDTO!.InputCreate;
+
+        if (validateDTO.InputIdentityUpdate != null)
+            return validateDTO!.InputIdentityUpdate.InputUpdate;
+
+        return null;
     }
     #endregion
 }

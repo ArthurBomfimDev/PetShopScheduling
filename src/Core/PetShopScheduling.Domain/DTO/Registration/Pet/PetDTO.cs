@@ -1,5 +1,5 @@
 ﻿using PetShopScheduling.Argument.Argument.Registration;
-using PetShopScheduling.Argument.Enum.Registration.EnumAnimalType;
+using PetShopScheduling.Argument.Enum.Registration.EnumSpecieType;
 using PetShopScheduling.Argument.Enum.Registration.PetSize;
 using PetShopScheduling.Domain.DTO.Base;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,7 +10,7 @@ public class PetDTO : BaseDTO<PetDTO, InputCreatePet, InputUpdatePet, InputIdent
 {
     public long CustomerId { get; private set; }
     public string? Identification { get; private set; }
-    public EnumAnimalType AnimalType { get; private set; }
+    public EnumSpecieType SpecieType { get; private set; }
     public string? Name { get; private set; }
     public DateOnly? BirthDate { get; private set; }
     public string? Race { get; private set; }
@@ -26,11 +26,11 @@ public class PetDTO : BaseDTO<PetDTO, InputCreatePet, InputUpdatePet, InputIdent
 
     public PetDTO() { }
 
-    public PetDTO(long customerId, string? identification, EnumAnimalType animalType, string? name, DateOnly? birthDate, string? race, EnumPetSize? petSize, string? observation, CustomerDTO customer, List<ScheduleDTO>? listSchedule)
+    public PetDTO(long customerId, string? identification, EnumSpecieType specieType, string? name, DateOnly? birthDate, string? race, EnumPetSize? petSize, string? observation, CustomerDTO customer, List<ScheduleDTO>? listSchedule)
     {
         CustomerId = customerId;
         Identification = identification;
-        AnimalType = animalType;
+        SpecieType = specieType;
         Name = name;
         BirthDate = birthDate;
         Race = race;

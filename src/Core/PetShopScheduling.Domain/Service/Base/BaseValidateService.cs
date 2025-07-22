@@ -1,20 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Reflection;
-using PetShopScheduling.Argument.Argument.Base;
-using PetShopScheduling.Argument.Enum.Internal.Validate;
+﻿using PetShopScheduling.Argument.Argument.Base;
 using PetShopScheduling.Argument.Internal.ApiResponse;
 using PetShopScheduling.Domain.DTO.Base;
 using PetShopScheduling.Domain.Interface.Service.Base;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
 namespace PetShopScheduling.Domain.Service.Base;
 
-public class BaseValidateService<TValidateDTO, TOutput, TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete> : BaseValidate<TValidateDTO, TOutput, TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete>, IBaseValidateService
+public class BaseValidateService<TValidateDTO, TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete, TOutput> : BaseValidate<TValidateDTO, TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete, TOutput>, IBaseValidateService<TValidateDTO, TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete, TOutput>
     where TValidateDTO : BaseValidateDTO_1<TInputCreate, TInputUpdate, TInputIdentityUpdate, TInputIdentityDelete>
-    where TOutput : BaseOutput<TOutput>
     where TInputCreate : BaseInputCreate<TInputCreate>
     where TInputUpdate : BaseInputUpdate<TInputUpdate>
     where TInputIdentityUpdate : BaseInputIdentityUpdate<TInputUpdate>
     where TInputIdentityDelete : BaseInputIdentityDelete<TInputIdentityDelete>
+    where TOutput : BaseOutput<TOutput>
 {
     public void ValidateNullDTO(List<TValidateDTO> listValidateDTO)
     {
@@ -28,7 +27,7 @@ public class BaseValidateService<TValidateDTO, TOutput, TInputCreate, TInputUpda
     {
         (from i in RemoveIgnore(listValidateDTO)
          where i.InputCreate == null
-         where i.InputUpdate == null
+         where i.InputIdentityUpdate?.InputUpdate == null
          let setIgnore = i.SetIgnore()
          select i).ToList();
     }
@@ -50,12 +49,12 @@ public class BaseValidateService<TValidateDTO, TOutput, TInputCreate, TInputUpda
         List<PropertyInfo> listProperties = validateDTO?.GetType().GetProperties().ToList() ?? new List<PropertyInfo>();
 
         var validateMaxLengthproperty = (from i in listProperties
-                                                             let maxLength = typeof(TOutput).GetProperty(i.Name)?.GetCustomAttribute<MaxLengthAttribute>() ?? null
-                                                             where maxLength != null
-                                                             let currentLength = i.GetValue(validateDTO)?.ToString() ?? null
-                                                             where currentLength != null && currentLength.Length > maxLength.Length
-                                                             let setInvalid = validateDTO.SetInvalid()
-                                                             select new {PropertyName = i.Name, MaxLength = maxLength.Length}).ToDictionary(x => x.PropertyName, x => x.MaxLength);
+                                         let maxLength = typeof(TOutput).GetProperty(i.Name)?.GetCustomAttribute<MaxLengthAttribute>() ?? null
+                                         where maxLength != null
+                                         let currentLength = i.GetValue(validateDTO)?.ToString() ?? null
+                                         where currentLength != null && currentLength.Length > maxLength.Length
+                                         let setInvalid = validateDTO.SetInvalid()
+                                         select new {PropertyName = i.Name, MaxLength = maxLength.Length}).ToDictionary(x => x.PropertyName, x => x.MaxLength);
 
         return validateMaxLengthproperty != null ? validateMaxLengthproperty : default;
     }
